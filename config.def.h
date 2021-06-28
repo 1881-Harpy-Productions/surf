@@ -1,11 +1,11 @@
 /* modifier 0 means no modifier */
 static int surfuseragent    = 1;  /* Append Surf version to default WebKit user agent */
 static char *fulluseragent  = ""; /* Or override the whole user agent string */
-static char *scriptfile     = "~/.surf/script.js";
-static char *styledir       = "~/.surf/styles/";
-static char *certdir        = "~/.surf/certificates/";
-static char *cachedir       = "~/.surf/cache/";
-static char *cookiefile     = "~/.surf/cookies.txt";
+static char *scriptfile     = "~/.config/surf/script.js";
+static char *styledir       = "~/.config/surf/styles/";
+static char *certdir        = "~/.config/surf/certificates/";
+static char *cachedir       = "~/.cache/surf/cache/";
+static char *cookiefile     = "~/.cache/surf/cookies.txt";
 
 /* Webkit default features */
 /* Highest priority value will be used.
@@ -17,19 +17,19 @@ static Parameter defconfig[ParameterLast] = {
 	/* parameter                    Arg value       priority */
 	[AccessMicrophone]    =       { { .i = 0 },     },
 	[AccessWebcam]        =       { { .i = 0 },     },
-	[Certificate]         =       { { .i = 0 },     },
-	[CaretBrowsing]       =       { { .i = 0 },     },
+	[Certificate]         =       { { .i = 1 },     },
+	[CaretBrowsing]       =       { { .i = 1 },     },
 	[CookiePolicies]      =       { { .v = "@Aa" }, },
 	[DefaultCharset]      =       { { .v = "UTF-8" }, },
 	[DiskCache]           =       { { .i = 1 },     },
-	[DNSPrefetch]         =       { { .i = 0 },     },
+	[DNSPrefetch]         =       { { .i = 1 },     },
 	[Ephemeral]           =       { { .i = 0 },     },
 	[FileURLsCrossAccess] =       { { .i = 0 },     },
 	[FontSize]            =       { { .i = 12 },    },
 	[FrameFlattening]     =       { { .i = 0 },     },
 	[Geolocation]         =       { { .i = 0 },     },
 	[HideBackground]      =       { { .i = 0 },     },
-	[Inspector]           =       { { .i = 0 },     },
+	[Inspector]           =       { { .i = 1 },     },
 	[Java]                =       { { .i = 1 },     },
 	[JavaScript]          =       { { .i = 1 },     },
 	[KioskMode]           =       { { .i = 0 },     },
@@ -41,11 +41,11 @@ static Parameter defconfig[ParameterLast] = {
 	[ShowIndicators]      =       { { .i = 1 },     },
 	[SiteQuirks]          =       { { .i = 1 },     },
 	[SmoothScrolling]     =       { { .i = 0 },     },
-	[SpellChecking]       =       { { .i = 0 },     },
+	[SpellChecking]       =       { { .i = 1 },     },
 	[SpellLanguages]      =       { { .v = ((char *[]){ "en_US", NULL }) }, },
 	[StrictTLS]           =       { { .i = 1 },     },
 	[Style]               =       { { .i = 1 },     },
-	[WebGL]               =       { { .i = 0 },     },
+	[WebGL]               =       { { .i = 1 },     },
 	[ZoomLevel]           =       { { .f = 1.0 },   },
 };
 
@@ -89,7 +89,7 @@ static WebKitFindOptions findopts = WEBKIT_FIND_OPTIONS_CASE_INSENSITIVE |
  */
 #define PLUMB(u) {\
         .v = (const char *[]){ "/bin/sh", "-c", \
-             "xdg-open \"$0\"", u, NULL \
+             "haikankou-x \"$0\"", u, NULL \
         } \
 }
 
