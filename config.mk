@@ -29,4 +29,5 @@ SURFCFLAGS = -fPIC $(INCS) $(CPPFLAGS)
 WEBEXTCFLAGS = -fPIC $(WEBEXTINC)
 
 # compiler
-#CC = c99
+CC = clang12
+
