@@ -24,10 +24,10 @@ LIBS = $(X11LIB) $(GTKLIB) -lgthread-2.0
 # flags
 CPPFLAGS = -DVERSION=\"$(VERSION)\" -DGCR_API_SUBJECT_TO_CHANGE \
            -DLIBPREFIX=\"$(LIBPREFIX)\" -DWEBEXTDIR=\"$(LIBDIR)\" \
-           -D_DEFAULT_SOURCE
+               -D_DEFAULT_SOURCE -march=native -mtune=native -pipe
 SURFCFLAGS = -fPIC $(INCS) $(CPPFLAGS)
 WEBEXTCFLAGS = -fPIC $(WEBEXTINC)
 
 # compiler
-CC = clang12
+CC = clang
 
